@@ -1,0 +1,174 @@
+@import "../../../styles.scss";
+
+.wrapper {
+  width: 100%;
+  align-items: stretch;
+  #sidebar {
+    min-width: 18rem;
+    max-width: 18rem;
+    background: rgb(13, 28, 124);
+    background: linear-gradient(
+      337deg,
+      #0d1c7c 0%,
+      #233393 27%,
+      #303fa1 41%,
+      #3f50b3 53%,
+      #4857ba 67%,
+      #5a6ace 88%,
+      #7181e6 96%
+    );
+    color: #fff;
+    transition: all 0.3s;
+    padding: 7rem 1.5rem 1.5rem 2rem;
+    border-radius: 0rem 0.7rem 0rem 0rem;
+    box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
+    .search {
+        position: relative;
+        width: 100%;
+        input {
+          border-radius: 9px;
+          border: none;
+          width: 100%;
+          font-family: "Poppins", sans-serif;
+          font-size: 0.6rem;
+          height: 1.8rem;
+          padding-left: 1rem;
+        }
+        input:focus {
+          outline: none;
+          box-shadow: none;
+        }
+        input::placeholder {
+          color: var(--light-grey-color);
+        }
+        i {
+          color: var(--grey-color);
+          position: absolute;
+          width: unset;
+          top: 0.3rem;
+          bottom: 0;
+          right: 0.5rem;
+        }
+      }
+
+      .menu-list-items {
+        margin-top: 1.3rem;
+        width: 100%;
+        .item {
+          cursor: pointer;
+          .sub-menu {
+            padding-left: 1rem;
+          }
+        }
+      }
+  }
+  #content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    padding: 0rem 1rem;
+    background-color: var(--white-color);
+    box-shadow: 5px 2px 30px -27px #000000;
+    border-radius: 6px;
+    margin: 0.4rem;
+    .test {
+      color: black;
+      padding-top: 1rem;
+      .filters {
+        height: 14rem;
+        background-color: white;
+        width: 60%;
+        border-radius: 16px;
+        -webkit-box-shadow: 5px 2px 30px -27px #000000;
+        box-shadow: 5px 2px 30px -27px #000000;
+
+        .info-icon {
+          padding-right: 1rem;
+          padding-top: 0.5rem;
+        }
+      }
+      .chart {
+        background-color: white;
+        width: 40%;
+        height: 14rem;
+        border-radius: 16px;
+        -webkit-box-shadow: 5px 2px 30px -27px #000000;
+        box-shadow: 5px 2px 30px -27px #000000;
+      }
+    }
+    .fortigate {
+      color: black;
+      margin: 1.5rem 0;
+      border-bottom: 2px solid;
+    }
+    .table {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--text-gray-color);
+      thead {
+        background-color: var(--light-grey-color);
+      }
+      thead,
+      tbody {
+        border: none;
+        tr,
+        th,
+        td {
+          border: none;
+          font-weight: 400;
+          vertical-align: middle;
+        }
+        tbody {
+          tr {
+            line-height: 3 !important;
+          }
+        }
+        td {
+          color: var(--black-color);
+          input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            position: relative;
+            margin-right: 0.5rem;
+            border: 2px solid var(--light-grey-color);
+            border-radius: 5px 5px;
+            height: 1.3rem;
+            width: 1.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:checked {
+              border-color: var(--blue-color);
+              background-color: var(--blue-color);
+              &:before {
+                content: "";
+                background-color: var(--white-color);
+                width: 0.5rem;
+                height: 0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
