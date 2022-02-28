@@ -1,250 +1,312 @@
-<div class="wrapper d-flex">
-    <!-- Sidebar  -->
-    <nav id="sidebar" class="d-lg-block d-none" *ngIf="!active">
-
-        <div class="search">
-            <input type="text" placeholder="search menu...">
-            <i class="fa fa-search"></i>
-        </div>
-        <div class="menu-list-items">
-            <div class="item d-flex justify-content-between
-                align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        d
-                    </div>
-                    <a href="#">Dashboard</a>
-                </div>
-            </div>
-            <div class="item">
-                <div class="d-flex justify-content-between
-                    align-items-center" (click)="toggleMenu($event)">
-                    <div class="d-flex align-items-center">
-                        <div class="icon">
-                            f
-                        </div>
-                        <a href="#">Products</a>
-                    </div>
-                    <i class="fa fa-angle-down" [ngClass]="{ 'rotate' :
-                        subMenuToggle }"></i>
-                </div>
-                <div class="sub-menu" *ngIf="subMenuToggle">
-                    <div class="sub-item">
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Added Products</a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">New Product</a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Supported Devices</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="d-flex justify-content-between
-                    align-items-center" (click)="toggleMenu($event)">
-                    <div class="d-flex align-items-center">
-                        <div class="icon">
-                            f
-                        </div>
-                        <a href="#">Reports</a>
-                    </div>
-                    <i class="fa fa-angle-down" [ngClass]="{
-                        'rotate':subMenuToggle }"></i>
-                </div>
-                <div class="sub-menu" *ngIf="subMenuToggle">
-                    <div class="sub-item">
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Created Reports</a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">New Report</a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Update Reports</a>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Delete Reports</a>
-                        </div>
-                        <div class="d-flex align-items-center"
-                            style="padding-left: 1rem;">
-                            <div class="icon">
-                                f
-                            </div>
-                            <div class="d-flex align-items-center
-                                justify-content-between w-100">
-                                <a href="#">Report Histories</a>
-                                <i class="fa fa-angle-down"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="d-flex justify-content-between
-                    align-items-center" (click)="toggleMenu($event)">
-                    <div class="d-flex align-items-center">
-                        <div class="icon">
-                            f
-                        </div>
-                        <a href="#">Compression</a>
-                    </div>
-                    <i class="fa fa-angle-down" [ngClass]="{
-                        'rotate':subMenuToggle }"></i>
-                </div>
-                <div class="sub-menu" *ngIf="subMenuToggle">
-                    <div class="sub-item">
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <div class="d-flex align-items-center
-                                justify-content-between w-100">
-                                <a href="#">Check Compression Status</a>
-                                <i class="fa fa-angle-down" [ngClass]="{
-                                    'rotate':subMenuToggle }"></i>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="icon">
-                                f
-                            </div>
-                            <a href="#">Create Custom Compression</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item d-flex justify-content-between
-                align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        d
-                    </div>
-                    <a href="#">Data Warehouse</a>
-                </div>
-            </div>
-            <div class="item d-flex justify-content-between
-                align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        d
-                    </div>
-                    <a href="#">Login Activities</a>
-                </div>
-            </div>
-            <div class="item d-flex justify-content-between
-                align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="icon">
-                        d
-                    </div>
-                    <a href="#">System Logs</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <button type="button" 
-                    (click)="showActive()" style="border: none;">
+<main>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div>
+                <button type="button"
+                    (click)="showActive()">
                     <i class="fa fa-bars"></i>
                 </button>
-
+                <span>Oriana
+                    > Data Warehouse</span>
+            </div>
+            <i class="fa fa-gear setting"></i>
+        </div>
+    </nav>
+    <div class="wrapper d-flex">
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="d-lg-block d-none" *ngIf="!active">
+            <div class="search">
+                <input type="text" placeholder="search menu...">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="menu-list-items">
+                <div class="item d-flex justify-content-between
+                    align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="icon">
+                            d
+                        </div>
+                        <a href="#">Dashboard</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="d-flex justify-content-between
+                        align-items-center" (click)="toggleMenu($event)">
+                        <div class="d-flex align-items-center">
+                            <div class="icon">
+                                f
+                            </div>
+                            <a href="#">Products</a>
+                        </div>
+                        <i class="fa fa-angle-down" [ngClass]="{ 'rotate' :
+                            subMenuToggle }"></i>
+                    </div>
+                    <div class="sub-menu" *ngIf="subMenuToggle">
+                        <div class="sub-item">
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Added Products</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">New Product</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Supported Devices</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="d-flex justify-content-between
+                        align-items-center" (click)="toggleMenu($event)">
+                        <div class="d-flex align-items-center">
+                            <div class="icon">
+                                f
+                            </div>
+                            <a href="#">Reports</a>
+                        </div>
+                        <i class="fa fa-angle-down" [ngClass]="{
+                            'rotate':subMenuToggle }"></i>
+                    </div>
+                    <div class="sub-menu" *ngIf="subMenuToggle">
+                        <div class="sub-item">
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Created Reports</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">New Report</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Update Reports</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Delete Reports</a>
+                            </div>
+                            <div class="d-flex align-items-center"
+                                style="padding-left: 1rem;">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <div class="d-flex align-items-center
+                                    justify-content-between w-100">
+                                    <a href="#">Report Histories</a>
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="d-flex justify-content-between
+                        align-items-center" (click)="toggleMenu($event)">
+                        <div class="d-flex align-items-center">
+                            <div class="icon">
+                                f
+                            </div>
+                            <a href="#">Compression</a>
+                        </div>
+                        <i class="fa fa-angle-down" [ngClass]="{
+                            'rotate':subMenuToggle }"></i>
+                    </div>
+                    <div class="sub-menu" *ngIf="subMenuToggle">
+                        <div class="sub-item">
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <div class="d-flex align-items-center
+                                    justify-content-between w-100">
+                                    <a href="#">Check Compression Status</a>
+                                    <i class="fa fa-angle-down" [ngClass]="{
+                                        'rotate':subMenuToggle }"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="icon">
+                                    f
+                                </div>
+                                <a href="#">Create Custom Compression</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item d-flex justify-content-between
+                    align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="icon">
+                            d
+                        </div>
+                        <a href="#">Data Warehouse</a>
+                    </div>
+                </div>
+                <div class="item d-flex justify-content-between
+                    align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="icon">
+                            d
+                        </div>
+                        <a href="#">Login Activities</a>
+                    </div>
+                </div>
+                <div class="item d-flex justify-content-between
+                    align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="icon">
+                            d
+                        </div>
+                        <a href="#">System Logs</a>
+                    </div>
+                </div>
             </div>
         </nav>
 
-        <div class="test d-flex">
-            <div class="filters">
-                <div class="info-icon w-100 d-flex
-                    justify-content-end">
-                    icon
-                </div>
-                <div>
-                    <div class="search d-flex">
-                        <div class="d-flex justify-content-between
-                            w-100">
-                            <span>Attribute</span>
-                            <span>value</span>
+        <div id="content">
+            <div class="filter-transaction d-flex">
+                <div class="filters">
+                    <div class="info-icon d-flex justify-content-center
+                        align-items-center">
+                        <i class="fa fa-info"></i>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="search">
+                            
+                            <form class="search-form" [formGroup]="filterForm">
+                                <div class="form-group d-flex">
+                                    <div>
+                                        <span>Attribute</span>
+                                        
+                                    </div>
+                                    <div>
+                                        <span>value</span>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-start">
+                                    <div>
+                                        <label class="col-form-label">Date Time</label>
+                                    </div>
+                                    <div>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="position: relative;">
+                                    <div style="position: absolute;left: 0; top: 0;">
+                                        <label class="col-form-label">Filters</label>
+                                    </div>
+                                    <div *ngFor="let filter of getFiltersFormControls(); let i= index" style="margin-left: 2.5rem;">
+                                        <input [formControl]="filter" type="text">
+                                    </div>
+                                    <div style="position: absolute; right: -2rem; top: 0.5rem;">
+                                        <button style="color: gray; border:
+                                            none!important; background-color:
+                                            transparent; margin-left: 1rem;"> <i
+                                                class="fa fa-plus"
+                                                (click)="addFilter()"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-
+                        <div class="information-box">
+                            <h3>Data information</h3>
+                            <div class="get-information">
+                                <div class="get-items">
+                                    <span><b>Device Brand:</b>FortiNet <b>Device
+                                            Model:</b>60F</span>
+                                </div>
+                                <div class="get-items">
+                                    <span><b>Date İndex:</b>True <b>Time Index:</b>True
+                                        <b>Log Index:</b>True</span>
+                                </div>
+                                <div class="get-items">
+                                    <span><b>Archive Status:</b><a style="color:
+                                            blue !important;">Show All</a></span>
+                                </div>
+                                <div class="get-items">
+                                    <span><b>Total Log Count:</b>3825487</span>
+                                </div>
+                                <div class="get-items">
+                                    <span><b>Log Count Today:</b>25487</span>
+                                </div>
+                                <div class="get-items">
+                                    <span><b>Deduplication Status:</b>True</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="information">
 
-                    </div>
                 </div>
+                <div class="chart d-lg-block d-none">
 
+                </div>
             </div>
-            <div class="chart d-lg-block d-none">
-
+            <div class="fortigate d-flex justify-content-between
+                align-items-center">
+                <span>FortiGate IAU</span>
+                <i class="fa fa-chevron-up chevron-icon" [ngClass]="{ 'rotate' :
+                    showData }" (click)="isShowData()"></i>
+                <div class="info-icon d-flex justify-content-center
+                    align-items-center">
+                    <i class="fa fa-info"></i>
+                </div>
             </div>
-        </div>
-        <div class="fortigate">
-            ddsdsd
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Src IP</th>
-                        <th scope="col">Src Name</th>
-                        <th scope="col">Dst IP</th>
-                        <th scope="col">Dst User</th>
-                        <th scope="col">Service</th>
-                        <th scope="col">OS Name</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of dataWare">
-                        <td class="d-flex align-items-center">
-                            <input type="checkbox">
-                            {{data.date}}
-                        </td>
-                        <td>{{data.time}}</td>
-                        <td><i class="fa fa-circle"></i>{{data.type}}</td>
-                        <td>{{data.srcIP}}</td>
-                        <td>{{data.srcName}}</td>
-                        <td>{{data.dstIP}}</td>
-                        <td>{{data.dstUser}}</td>
-                        <td>{{data.service}}</td>
-                        <td>{{data.OSName}}</td>
-                        <td><i class="fa fa-circle"></i><i class="fa
-                                fa-circle"></i><i class="fa
-                                fa-circle"></i></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive" *ngIf="!showData">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Src IP</th>
+                            <th scope="col">Src Name</th>
+                            <th scope="col">Dst IP</th>
+                            <th scope="col">Dst User</th>
+                            <th scope="col">Service</th>
+                            <th scope="col">OS Name</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of dataWare">
+                            <td class="d-flex align-items-center">
+                                <input type="checkbox">
+                                {{data.date}}
+                            </td>
+                            <td>{{data.time}}</td>
+                            <td><i class="fa fa-circle dash-type"></i>{{data.type}}</td>
+                            <td>{{data.srcIP}}</td>
+                            <td>{{data.srcName}}</td>
+                            <td>{{data.dstIP}}</td>
+                            <td>{{data.dstUser}}</td>
+                            <td>{{data.service}}</td>
+                            <td>{{data.OSName}}</td>
+                            <td><i class="fa fa-circle circle-actions"></i><i
+                                    class="fa fa-circle circle-actions"></i><i
+                                    class="fa
+                                    fa-circle circle-actions"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</main>

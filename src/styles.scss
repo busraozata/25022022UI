@@ -1,39 +1,40 @@
-
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    width: 100%;
-    min-height: 100vh;
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-    overflow-x: hidden;
-    font-size: 1rem;
-    position: relative;
+body {
+  width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  font-size: 1rem;
+  position: relative;
 }
 
 //color
 :root {
-    --white-color: #FEFEFE;
-    --black-color:#000000;
-    --grey-color:#AAADC2;
-    --light-grey-color:#F1F4F7;
-    --text-gray-color: #ACB0B5;
-    --blue-color:#5F8DEE;
+  --white-color: #fefefe;
+  --black-color: #000000;
+  --grey-color: #aaadc2;
+  --light-grey-color: #f1f4f7;
+  --text-gray-color: #acb0b5;
+  --blue-color: #5f8dee;
+  --purple-color: #8995f5;
+  --light-blue-color:#ebf2fe;
 }
 
-a{
-    text-decoration: none !important;
-    color: var(--white-color) !important;
+a {
+  text-decoration: none !important;
+  color: var(--white-color) !important;
 }
 
-.rotate{
-    transform: rotate(180deg);
+.rotate {
+  transform: rotate(180deg);
 }
 
 //responsive breakpoints
@@ -43,3 +44,33 @@ $lg-breakpoint: 992px; //Large
 $xl-breakpoint: 1200px; //Extra large
 $xxl-breakpoint: 1400px; //Extra extra large
 
+@mixin info-icon {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  border: 1px solid var(--grey-color);
+  font-size: 0.5rem;
+  padding: 0.2rem;
+  width: 1rem;
+  border-radius: 3rem;
+  color: var(--grey-color);
+  cursor: pointer;
+}
+
+@mixin input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+
+@mixin information-items-and-input {
+    font-size: 0.6rem;
+    border: 1px solid var(--light-blue-color);
+    border-radius: 7px;
+    background: var(--light-blue-color);
+    margin-top: 0.5rem;
+    padding: 0.2rem 2rem;
+}
