@@ -1,6 +1,6 @@
 @import "../../../styles.scss";
 
-main{
+main {
   position: relative;
   .navbar {
     padding: 0.5rem;
@@ -9,11 +9,14 @@ main{
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     position: absolute;
-    width: 83%;
-    z-index: 999999999;
+    width: 82%;
+    z-index: 99;
     background: transparent;
     right: 0;
     border-radius: 1rem 0rem 0rem 1rem;
+    @media screen and(max-width:$sm-breakpoint) {
+      width: 100%;
+    }
     button {
       border: none;
       background-color: transparent;
@@ -47,16 +50,37 @@ main{
         #5a6ace 88%,
         #7181e6 96%
       );
-      color: #fff;
+      color: var(--light-grey-color);
       transition: all 0.3s;
       padding: 4rem 1.5rem 1.5rem 2rem;
       border-radius: 0rem 0.7rem 0rem 0rem;
       box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
       -webkit-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
+
+      @media screen and(max-width:$md-breakpoint) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+      }
+      @media screen and(max-width:$sm-breakpoint) {
+        z-index: 99999;
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .close{
+        color: #fff;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        font-size: 1rem;
+      }
       .search {
         position: relative;
         width: 100%;
+       
         input {
           border-radius: 9px;
           border: none;
@@ -82,11 +106,19 @@ main{
           right: 0.5rem;
         }
       }
-  
+
       .menu-list-items {
         margin-top: 1.3rem;
         width: 100%;
+        font-size: 0.8rem;
+        line-height: 2;
+        font-weight: 400;
+        
         .item {
+          a{
+            color: var(--light-grey-color);
+            font-family: "Poppins", sans-serif;
+          }
           cursor: pointer;
           .sub-menu {
             padding-left: 1rem;
@@ -121,15 +153,19 @@ main{
           border-radius: 16px;
           -webkit-box-shadow: 5px 2px 30px -27px #000000;
           box-shadow: 5px 2px 30px -27px #000000;
-  
+
           @media screen and(max-width:$xl-breakpoint) {
             width: 100%;
           }
           .info-icon {
             @include info-icon;
           }
-  
+
           .search {
+            width: 41%;
+            @media screen and(max-width:$sm-breakpoint) {
+              width: 90%;
+            }
             form {
               width: 100%;
               label {
@@ -139,7 +175,7 @@ main{
                 @include input;
                 @include information-items-and-input;
                 margin-left: 1rem;
-                
+                width: 100%;
               }
               input:focus {
                 outline: none;
@@ -150,8 +186,8 @@ main{
               }
             }
           }
-  
           .information-box {
+            width: 50%;
             h3 {
               font-size: 0.7rem;
             }
@@ -169,7 +205,7 @@ main{
                 width: 0.1rem;
                 background-color: var(--grey-color);
                 height: 92%;
-                left: -1rem;
+                left: -0.7rem;
                 top: 0;
               }
             }
@@ -213,7 +249,7 @@ main{
         border-collapse: separate;
         border-spacing: 0 1rem;
         margin-top: -1rem;
-      
+
         thead {
           background-color: var(--light-grey-color);
         }
@@ -259,14 +295,14 @@ main{
                 }
               }
             }
-            .dash-type{
+            .dash-type {
               margin-right: 0.5rem;
               color: red;
             }
-            .circle-actions{
+            .circle-actions {
               margin-right: 0.2rem;
               color: var(--light-blue-color);
-              &:last-child{
+              &:last-child {
                 margin-right: inherit;
               }
             }
@@ -283,5 +319,12 @@ main{
         }
       }
     }
+  }
+}
+
+
+@media screen and(max-width:$sm-breakpoint) {
+  .mobile-none{
+    display: none;
   }
 }
