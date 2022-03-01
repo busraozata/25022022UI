@@ -27,6 +27,15 @@ body {
   --blue-color: #5f8dee;
   --purple-color: #8995f5;
   --light-blue-color:#ebf2fe;
+  --green-color:#E1F7EB;
+}
+
+.text-filter{
+    padding-bottom: 1rem;
+    position: absolute;
+    bottom: 0rem;
+    color: var(--green-color);
+    font-size: 0.8rem;
 }
 
 a {

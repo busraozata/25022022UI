@@ -1,10 +1,10 @@
 <main>
-    <nav class="navbar">
+    <nav class="navbar" [ngClass]="{ 'w-100' :sidebarActive }">
         <div class="container-fluid">
             <div>
                 <button type="button"
                     (click)="showSidebar()">
-                    <i [ngClass]="{ 'menu-active' :active }" class="fa fa-bars
+                    <i [ngClass]="{ 'menu-active' :sidebarActive }" class="fa fa-bars
                         d-lg-block d-none"></i>
                     <i class="fa fa-bars menu-active d-lg-none d-block"></i>
                 </button>
@@ -16,7 +16,7 @@
     </nav>
     <div class="wrapper d-flex">
         <!-- Sidebar  -->
-        <nav id="sidebar" *ngIf="!active">
+        <nav id="sidebar" *ngIf="!sidebarActive">
             <i (click)="showSidebar()" class="bi bi-x-lg close"></i>
             <div class="search">
                 <input type="text" placeholder="search menu...">
@@ -47,14 +47,15 @@
                                 </div>
                                 <a href="">{{subItem.listName}}</a>
                             </div>
-                            <div class="sub-item" style="margin-left: 2rem;"
-                                *ngFor="let doublesubItem of
-                                item.subNames.subNames">
-                                <div class="d-flex align-items-center">
-                                    <div class="icon">
-                                        <i class="{{doublesubItem.icon}}"></i>
+                            <div class="sub-item" style="margin-left: 1rem;" *ngFor="let doublesubItem of subItem.doublesubNames">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex">
+                                        <div class="icon">
+                                            <i class="{{doublesubItem.icon}}"></i>
+                                        </div>
+                                        <a href="">{{doublesubItem.listName}}</a>
                                     </div>
-                                    <a href="">{{doublesubItem.listName}}</a>
+                                    <i class="chevron-icon {{item.subStatus}}" ></i>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +98,7 @@
                                         <div class="label-area">
                                             <label class="col-form-label">Filters</label>
                                         </div>
-                                        <div class="input-area" *ngFor="let
-                                            filter of getFiltersFormControls();
+                                        <div class="input-area" *ngFor="let filter of getFiltersFormControls();
                                             let i= index">
                                             <input [formControl]="filter"
                                                 type="text">
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <span class="text-filter">filters</span>
                 </div>
                 <div class="chart d-lg-block d-none">
                     <div>
@@ -164,7 +164,7 @@
                             </igx-category-chart>
                         </div>
                     </div>
-
+                    <span class="text-filter">Lead Sales</span>
                 </div>
             </div>
             <div class="fortigate d-flex justify-content-between

@@ -14,11 +14,21 @@ import { subscribeOn } from 'rxjs';
   styleUrls: ['./data-ware-house.component.scss'],
 })
 export class DataWareHouseComponent implements OnInit {
-  active: any;
+  sidebarActive: any;
   showData: any;
   filterForm: FormGroup;
   page = 1;
   pageSize = 7;
+  visibleIndex = -1;
+  inputTotal = 0;
+
+  constructor(private fb: FormBuilder) {
+    this.filterForm = this.fb.group({
+      filters: this.fb.array([this.fb.control(null)]),
+    });
+  }
+
+  ngOnInit(): void {}
 
   sidebarData: any = [
     {
@@ -69,7 +79,7 @@ export class DataWareHouseComponent implements OnInit {
         {
           icon: 'bi bi-clock-history',
           listName: 'Report Histories',
-          subNames: [
+          doublesubNames: [
             {
               icon: 'bi bi-clock-history',
               listName: 'Report Results',
@@ -127,7 +137,7 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -139,7 +149,31 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'utm',
+      srcIP: '10.34.15.5',
+      srcName: 'halit.ozer',
+      dstIP: '10.34.18.5',
+      dstUser: 'ugur.aslan',
+      service: 'UDP/443',
+      OSName: 'IOS',
+      actions: '',
+    },
+    {
+      date: '2022-02-22',
+      time: '19:53:31',
+      type: 'traffic',
+      srcIP: '10.34.15.5',
+      srcName: 'ozen.ozer',
+      dstIP: '10.34.18.5',
+      dstUser: 'dogukan.ilgaz',
+      service: 'TCP/514',
+      OSName: 'Android',
+      actions: '',
+    },
+    {
+      date: '2022-02-22',
+      time: '19:53:31',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -151,7 +185,7 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -163,7 +197,19 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
+      srcIP: '10.34.15.5',
+      srcName: 'ozen.ozer',
+      dstIP: '10.34.18.5',
+      dstUser: 'dogukan.ilgaz',
+      service: 'TCP/514',
+      OSName: 'Android',
+      actions: '',
+    },
+    {
+      date: '2022-02-22',
+      time: '19:53:31',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -175,7 +221,7 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -187,7 +233,7 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -199,19 +245,7 @@ export class DataWareHouseComponent implements OnInit {
     {
       date: '2022-02-22',
       time: '19:53:31',
-      type: 'Traffic',
-      srcIP: '10.34.15.5',
-      srcName: 'OZZPDC',
-      dstIP: '10.34.18.5',
-      dstUser: 'okan.emecen',
-      service: 'LDAP',
-      OSName: 'Windows',
-      actions: '',
-    },
-    {
-      date: '2022-02-22',
-      time: '19:53:31',
-      type: 'Traffic',
+      type: 'traffic',
       srcIP: '10.34.15.5',
       srcName: 'OZZPDC',
       dstIP: '10.34.18.5',
@@ -224,7 +258,7 @@ export class DataWareHouseComponent implements OnInit {
 
   tabMenuData: any = [
     {
-      title: 'All time'
+      title: 'All time',
     },
     {
       title: 'This year',
@@ -237,36 +271,10 @@ export class DataWareHouseComponent implements OnInit {
     },
   ];
 
-  visibleIndex = -1;
-  showSubItem(ind: any) {
-    if (this.visibleIndex === ind) {
-      this.visibleIndex = -1;
-    } else {
-      this.visibleIndex = ind;
-    }
-  }
-
-  constructor(private fb: FormBuilder) {
-    this.filterForm = this.fb.group({
-      filters: this.fb.array([this.fb.control(null)]),
-    });
-  }
-
-  ngOnInit(): void {}
-
-  showSidebar() {
-    this.active = !this.active;
-  }
-
-  isShowData() {
-    this.showData = !this.showData;
-  }
-
-  total = 0;
   addFilter(): void {
-    if (this.total < 3) {
+    if (this.inputTotal < 3) {
       (this.filterForm.get('filters') as FormArray).push(this.fb.control(null));
-      this.total++;
+      this.inputTotal++;
     } else {
       console.log('Stop');
     }
@@ -274,5 +282,21 @@ export class DataWareHouseComponent implements OnInit {
 
   getFiltersFormControls(): AbstractControl[] {
     return (<FormArray>this.filterForm.get('filters')).controls;
+  }
+
+  showSubItem(i: any) {
+    if (this.visibleIndex === i) {
+      this.visibleIndex = -1;
+    } else {
+      this.visibleIndex = i;
+    }
+  }
+
+  showSidebar() {
+    this.sidebarActive = !this.sidebarActive;
+  }
+
+  isShowData() {
+    this.showData = !this.showData;
   }
 }
