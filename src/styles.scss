@@ -20,7 +20,8 @@ body {
 :root {
   --white-color: #fefefe;
   --black-color: #000000;
-  --grey-color: #aaadc2;
+  --grey-color: #808080;
+  --dark-grey-color:#747474;
   --light-grey-color: #f1f4f7;
   --text-gray-color: #acb0b5;
   --blue-color: #5f8dee;
@@ -32,7 +33,11 @@ a {
   text-decoration: none !important;
   color: var(--white-color) ;
 }
-
+ul{
+    li{
+        list-style-type: none;
+    }
+}
 .rotate {
   transform: rotate(180deg);
 }

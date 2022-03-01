@@ -9,12 +9,12 @@ main {
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     position: absolute;
-    width: 82%;
+    width: 82.3%;
     z-index: 99;
     background: transparent;
     right: 0;
-    border-radius: 1rem 0rem 0rem 1rem;
-    @media screen and(max-width:$sm-breakpoint) {
+    border-radius: 0rem 0rem 0rem 1rem;
+    @media screen and(max-width:$xl-breakpoint) {
       width: 100%;
     }
     button {
@@ -23,7 +23,7 @@ main {
       color: var(--white-color);
     }
     span {
-      margin-left: 1rem;
+      margin-left: 1.5rem;
       color: var(--grey-color);
       font-size: 0.7rem;
     }
@@ -41,14 +41,14 @@ main {
       max-width: 18rem;
       background: rgb(13, 28, 124);
       background: linear-gradient(
-        337deg,
-        #0d1c7c 0%,
-        #233393 27%,
-        #303fa1 41%,
-        #3f50b3 53%,
-        #4857ba 67%,
-        #5a6ace 88%,
-        #7181e6 96%
+        353deg,
+        rgba(13, 28, 124, 1) 0%,
+        rgba(35, 51, 147, 1) 27%,
+        rgba(48, 63, 161, 1) 36%,
+        rgba(63, 80, 179, 1) 46%,
+        rgba(72, 87, 186, 1) 54%,
+        rgba(90, 106, 206, 1) 70%,
+        rgba(113, 129, 230, 1) 88%
       );
       color: var(--light-grey-color);
       transition: all 0.3s;
@@ -58,20 +58,19 @@ main {
       -webkit-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 2px 1px 23px 1px rgba(0, 0, 0, 0.75);
 
-      @media screen and(max-width:$md-breakpoint) {
+      @media screen and(max-width:$xl-breakpoint) {
         position: absolute;
         width: 100%;
         height: 100%;
-        z-index: 9;
+        z-index: 99999;
       }
       @media screen and(max-width:$sm-breakpoint) {
-        z-index: 99999;
         min-width: 100%;
         max-width: 100%;
       }
 
-      .close{
-        color: #fff;
+      .close {
+        color: var(--white-color);
         position: absolute;
         top: 1rem;
         right: 2rem;
@@ -80,7 +79,7 @@ main {
       .search {
         position: relative;
         width: 100%;
-       
+
         input {
           border-radius: 9px;
           border: none;
@@ -113,15 +112,26 @@ main {
         font-size: 0.8rem;
         line-height: 2;
         font-weight: 400;
-        
+
         .item {
-          a{
+          .icon {
+            margin-right: 0.3rem;
+          }
+          .chevron-icon {
+            font-size: 1.2rem;
+          }
+          a {
             color: var(--light-grey-color);
             font-family: "Poppins", sans-serif;
           }
           cursor: pointer;
           .sub-menu {
             padding-left: 1rem;
+            .sub-item {
+              .icon {
+                margin-right: 0.3rem;
+              }
+            }
           }
         }
       }
@@ -153,7 +163,8 @@ main {
           border-radius: 16px;
           -webkit-box-shadow: 5px 2px 30px -27px #000000;
           box-shadow: 5px 2px 30px -27px #000000;
-
+          color: var(--dark-grey-color);
+          font-size: 0.7rem;
           @media screen and(max-width:$xl-breakpoint) {
             width: 100%;
           }
@@ -168,21 +179,77 @@ main {
             }
             form {
               width: 100%;
-              label {
-                font-size: 0.5rem;
+              height: 100%;
+              .form-group {
+                font-weight: 500;
+                margin-bottom: 0.2rem;
+                position: relative;
+                .value {
+                  width: 100%;
+                  text-align: center;
+                }
+                .label-area {
+                  position: absolute;
+                  left: 0;
+                  top: 0.5rem;
+                  label {
+                    font-size: 0.5rem;
+                  }
+                }
+
+                .input-area {
+                  margin-left: 2.5rem;
+                  input[type="text"] {
+                    @include input;
+                    @include information-items-and-input;
+                    margin-left: 1rem;
+                    width: 100%;
+                  }
+                  input:focus {
+                    outline: none;
+                    box-shadow: none;
+                  }
+                  input::placeholder {
+                    color: var(--grey-color);
+                  }
+                }
               }
-              input[type="text"] {
-                @include input;
-                @include information-items-and-input;
+
+              .icon-area {
+                position: absolute;
+                right: -2rem;
+                top: 0.7rem;
+                .fa {
+                  color: var(--grey-color);
+                  border: none !important;
+                  background-color: transparent;
+                  margin-left: 1rem;
+                  cursor: pointer;
+                }
+              }
+
+              .button-area {
                 margin-left: 1rem;
-                width: 100%;
-              }
-              input:focus {
-                outline: none;
-                box-shadow: none;
-              }
-              input::placeholder {
-                color: var(--grey-color);
+                margin-bottom: 1rem;
+                .btn {
+                  background: rgb(13, 28, 124);
+                  background: linear-gradient(
+                    23deg,
+                    rgba(72, 87, 186, 1) 54%,
+                    rgba(90, 106, 206, 1) 70%,
+                    rgba(113, 129, 230, 1) 88%
+                  );
+                  border-radius: 3rem 0rem 3rem 0rem;
+                  width: 37%;
+                  color: var(--white-color);
+                  box-shadow: none;
+                  @include input;
+                  font-size: 0.8rem;
+                  padding: 0.1rem 0;
+                  .fa {
+                    margin-left: 0.3rem;
+                  }
+                }
               }
             }
           }
@@ -197,6 +264,9 @@ main {
               margin-top: 1rem;
               .get-items {
                 @include information-items-and-input;
+                a {
+                  color: var(--blue-color);
+                }
               }
               &::before {
                 position: absolute;
@@ -222,14 +292,35 @@ main {
           border-radius: 16px;
           -webkit-box-shadow: 5px 2px 30px -27px #000000;
           box-shadow: 5px 2px 30px -27px #000000;
+          position: relative;
+          padding: 1rem;
+          color: var(--text-gray-color);
+          font-weight: 300;
+          font-size: 0.9rem;
           @media screen and(max-width:$xl-breakpoint) {
             display: none !important;
+          }
+          .tab-menu {
+            .item {
+              padding: 0.1rem 0.8rem;
+              margin-bottom: 1rem;
+              cursor: pointer;
+              &:hover {
+                background: black;
+                border-radius: 7px;
+                color: var(--white-color);
+              }
+            }
+          }
+
+          .info-icon {
+            @include info-icon;
           }
         }
       }
       .fortigate {
         color: var(--purple-color);
-        margin: 1.5rem 0;
+        margin: 1rem 0;
         border-bottom: 3px solid var(--light-grey-color);
         padding-bottom: 0.5rem;
         .info-icon {
@@ -322,9 +413,33 @@ main {
   }
 }
 
-
 @media screen and(max-width:$sm-breakpoint) {
-  .mobile-none{
+  .mobile-none {
     display: none;
   }
+}
+
+ngb-pagination ::ng-deep a {
+  color: var(--black-color);
+  border: none;
+  display: inline;
+  border-radius: 7px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  box-shadow: none;
+  &:active {
+    color: var(--white-color);
+  }
+}
+ngb-pagination ::ng-deep .page-item.active .page-link {
+  background-color: var(--blue-color);
+  padding: 0.3rem 0.5rem;
+  box-shadow: none;
+}
+ngb-pagination ::ng-deep .page-item.active .page-link:focus,
+.page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
+}
+ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+  box-shadow: none;
 }

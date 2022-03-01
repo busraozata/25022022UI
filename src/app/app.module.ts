@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { DataWareHouseComponent } from './components/data-ware-house/data-ware-house.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+import { IgxCategoryChartModule } from "igniteui-angular-charts";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataWareHouseComponent
+    DataWareHouseComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -18,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    IgxCategoryChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

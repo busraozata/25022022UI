@@ -3,9 +3,10 @@
         <div class="container-fluid">
             <div>
                 <button type="button"
-                    (click)="showActive()">
-                    <i [ngClass]="{ 'menu-active' :active }" class="fa fa-bars d-lg-block d-none"></i>
-                    <i  class="fa fa-bars menu-active d-lg-none d-block"></i>
+                    (click)="showSidebar()">
+                    <i [ngClass]="{ 'menu-active' :active }" class="fa fa-bars
+                        d-lg-block d-none"></i>
+                    <i class="fa fa-bars menu-active d-lg-none d-block"></i>
                 </button>
                 <span>Oriana
                     > Data Warehouse</span>
@@ -16,37 +17,41 @@
     <div class="wrapper d-flex">
         <!-- Sidebar  -->
         <nav id="sidebar" *ngIf="!active">
-            <i (click)="showActive()" class="bi bi-x-lg close d-lg-none d-block" style="color: #fff;"></i>
+            <i (click)="showSidebar()" class="bi bi-x-lg close"></i>
             <div class="search">
                 <input type="text" placeholder="search menu...">
                 <i class="fa fa-search"></i>
             </div>
 
             <div class="menu-list-items">
-                <div class="item" *ngFor="let item of sidebarData;let index= index">
+                <div class="item" *ngFor="let item of sidebarData;let index=
+                    index">
                     <div class="d-flex justify-content-between
                         align-items-center" (click)="showSubItem(index)">
                         <div class="d-flex align-items-center">
-                            <div class="icon" style="margin-right: 0.3rem;">
+                            <div class="icon">
                                 <i class="{{item.icon}}"></i>
                             </div>
                             <a href="#">{{item.listName}}</a>
                         </div>
-                        <i class="{{item.subStatus}}" [ngClass]="{ 'rotate' :
-                            visibleIndex === index}" style="font-size: 1.2rem;"></i>
+                        <i class="chevron-icon {{item.subStatus}}" [ngClass]="{
+                            'rotate' :
+                            visibleIndex === index}"></i>
                     </div>
                     <div class="sub-menu" *ngIf="visibleIndex === index">
-                        <div class="sub-item" *ngFor="let subItem of item.subNames">
+                        <div class="sub-item" *ngFor="let subItem of
+                            item.subNames">
                             <div class="d-flex align-items-center">
-                                <div class="icon" style="margin-right: 0.3rem;">
+                                <div class="icon">
                                     <i class="{{subItem.icon}}"></i>
                                 </div>
                                 <a href="">{{subItem.listName}}</a>
-                                
                             </div>
-                            <div class="sub-item" style="margin-left: 2rem;" *ngFor="let doublesubItem of item.subNames.subNames">
+                            <div class="sub-item" style="margin-left: 2rem;"
+                                *ngFor="let doublesubItem of
+                                item.subNames.subNames">
                                 <div class="d-flex align-items-center">
-                                    <div class="icon" style="margin-right: 0.3rem;">
+                                    <div class="icon">
                                         <i class="{{doublesubItem.icon}}"></i>
                                     </div>
                                     <a href="">{{doublesubItem.listName}}</a>
@@ -65,49 +70,54 @@
                         align-items-center">
                         <i class="fa fa-info"></i>
                     </div>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between h-100">
                         <div class="search">
+                            <form class="search-form d-flex flex-column
+                                justify-content-between">
+                                <div>
+                                    <div class="form-group d-flex">
+                                        <div>
+                                            <span>Attribute</span>
+                                        </div>
+                                        <div class="value">
+                                            <span>value</span>
+                                        </div>
+                                    </div>
 
-                            <form class="search-form" [formGroup]="filterForm">
-                                <div class="form-group d-flex">
-                                    <div>
-                                        <span>Attribute</span>
+                                    <div class="form-group">
+                                        <div class="label-area">
+                                            <label class="col-form-label">Date
+                                                Time</label>
+                                        </div>
+                                        <div class="input-area">
+                                            <input type="text">
+                                        </div>
                                     </div>
-                                    <div style="width: 100%; text-align: center;">
-                                        <span>value</span>
-                                    </div>
-                                </div>
-                                <div class="form-group" style="position: relative;">
-                                    <div style="position: absolute;left: 0; top: 0;">
-                                        <label class="col-form-label">Date Time</label>
-                                    </div>
-                                    <div style="margin-left: 2.5rem;">
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group" style="position:
-                                    relative;">
-                                    <div style="position: absolute;left: 0; top: 0;">
-                                        <label class="col-form-label">Filters</label>
-                                    </div>
-                                    <div *ngFor="let filter of getFiltersFormControls(); let i= index"
-                                        style="margin-left: 2.5rem;">
-                                        <input [formControl]="filter"  type="text">
-                                    </div>
-                                    <div style="position: absolute; right:
-                                        -2rem; top: 0.5rem;">
-                                        <button style="color: gray; border:
-                                            none!important; background-color:
-                                            transparent; margin-left: 1rem;"> <i
-                                                class="fa fa-plus"
+                                    <div class="form-group">
+                                        <div class="label-area">
+                                            <label class="col-form-label">Filters</label>
+                                        </div>
+                                        <div class="input-area" *ngFor="let
+                                            filter of getFiltersFormControls();
+                                            let i= index">
+                                            <input [formControl]="filter"
+                                                type="text">
+                                        </div>
+                                        <div class="icon-area">
+                                            <i class="fa fa-plus"
                                                 (click)="addFilter()"></i>
-                                        </button>
+                                        </div>
                                     </div>
+                                </div>
+                                <div class="button-area w-100 d-flex
+                                    justify-content-end">
+                                    <button class="btn">Search <i class="fa
+                                            fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
                         <div class="information-box">
-                            <h3>Data information</h3>
+                            <h3>Data informations</h3>
                             <div class="get-information">
                                 <div class="get-items">
                                     <span><b>Device Brand:</b>FortiNet <b>Device
@@ -118,8 +128,7 @@
                                         <b>Log Index:</b>True</span>
                                 </div>
                                 <div class="get-items">
-                                    <span><b>Archive Status:</b><a style="color:
-                                            blue !important;">Show All</a></span>
+                                    <span><b>Archive Status:</b><a>Show All</a></span>
                                 </div>
                                 <div class="get-items">
                                     <span><b>Total Log Count:</b>3825487</span>
@@ -136,6 +145,25 @@
 
                 </div>
                 <div class="chart d-lg-block d-none">
+                    <div>
+                        <div class="d-flex justify-content-between">
+                            <ul class="tab-menu d-flex justify-content-start
+                                align-items-center">
+                                <li class="item" *ngFor="let tabMenu of tabMenuData;let index=
+                                index">{{tabMenu.title}}</li>
+                            </ul>
+                            <div class="info-icon d-flex justify-content-center
+                                align-items-center">
+                                <i class="fa fa-info"></i>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <igx-category-chart [dataSource]="chartData"
+                                yAxisMinimumValue="0"
+                                height="200px">
+                            </igx-category-chart>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -167,12 +195,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let data of dataWare | slice: (page-1) *  pageSize : page * pageSize">
+                            <tr *ngFor="let data of dataWare | slice: (page-1) *
+                                pageSize : page * pageSize | filter:filterdata">
                                 <td class="d-flex align-items-center">
                                     <input type="checkbox"> {{data.date}}
                                 </td>
                                 <td>{{data.time}}</td>
-                                <td class="mobile-none"><i class="fa fa-circle dash-type"></i>{{data.type}}</td>
+                                <td class="mobile-none"><i class="fa fa-circle
+                                        dash-type"></i>{{data.type}}</td>
                                 <td>{{data.srcIP}}</td>
                                 <td class="mobile-none">{{data.srcName}}</td>
                                 <td class="mobile-none">{{data.dstIP}}</td>
@@ -180,13 +210,15 @@
                                 <td class="mobile-none">{{data.service}}</td>
                                 <td class="mobile-none">{{data.OSName}}</td>
                                 <td><i class="fa fa-circle circle-actions"></i><i
-                                        class="fa fa-circle circle-actions"></i><i class="fa
+                                        class="fa fa-circle circle-actions"></i><i
+                                        class="fa
                                         fa-circle circle-actions"></i></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <ngb-pagination class="d-flex justify-content-center align-items-center" [(page)]="page" [pageSize]="pageSize"
+                <ngb-pagination class="d-flex justify-content-center
+                    align-items-center" [(page)]="page" [pageSize]="pageSize"
                     [collectionSize]="dataWare.length"></ngb-pagination>
             </div>
         </div>

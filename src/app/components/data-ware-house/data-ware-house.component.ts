@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormArray,
   AbstractControl,
+  FormControl,
 } from '@angular/forms';
 import { subscribeOn } from 'rxjs';
 
@@ -112,6 +113,16 @@ export class DataWareHouseComponent implements OnInit {
     },
   ];
 
+  chartData: any = [
+    { label: '', value: 1 },
+    { label: '', value: 4 },
+    { label: '', value: 2 },
+    { label: '', value: 6 },
+    { label: '', value: 9 },
+    { label: '', value: 3 },
+    { label: '', value: 10 },
+  ];
+
   dataWare: any = [
     {
       date: '2022-02-22',
@@ -211,6 +222,21 @@ export class DataWareHouseComponent implements OnInit {
     },
   ];
 
+  tabMenuData: any = [
+    {
+      title: 'All time'
+    },
+    {
+      title: 'This year',
+    },
+    {
+      title: 'This week',
+    },
+    {
+      title: 'Today',
+    },
+  ];
+
   visibleIndex = -1;
   showSubItem(ind: any) {
     if (this.visibleIndex === ind) {
@@ -219,7 +245,7 @@ export class DataWareHouseComponent implements OnInit {
       this.visibleIndex = ind;
     }
   }
-  
+
   constructor(private fb: FormBuilder) {
     this.filterForm = this.fb.group({
       filters: this.fb.array([this.fb.control(null)]),
@@ -228,7 +254,7 @@ export class DataWareHouseComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  showActive() {
+  showSidebar() {
     this.active = !this.active;
   }
 
